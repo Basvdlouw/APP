@@ -23,6 +23,7 @@ public class InsertionSort {
 
     /**
      * Insertion sort with recursion
+     *
      * @param arr
      * @param n
      */
@@ -41,6 +42,7 @@ public class InsertionSort {
 
     /**
      * Insertion sort without recursion
+     *
      * @param array
      * @param <T>
      */

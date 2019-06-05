@@ -4,6 +4,7 @@ public class NumberOf1sCalculator {
 
     /**
      * Main method to test the calculateNumberOf1s method
+     *
      * @param args
      */
     public static void main(String[] args) {
@@ -17,13 +18,13 @@ public class NumberOf1sCalculator {
      * of 1s in the representation of N/ 2, plus 1, if N is odd.
      */
     public static int calculateNumberOf1s(int n) {
-        if(n == 0)
+        if (n == 0)
             return 0;
         else if (n == 1)
             return 1;
-        else if(n % 2 == 1)
-            return calculateNumberOf1s(n/2) +1;
+        else if (n % 2 == 1)
+            return calculateNumberOf1s(n / 2) + 1;
         else
-            return calculateNumberOf1s(n/2);
+            return calculateNumberOf1s(n / 2);
     }
 }

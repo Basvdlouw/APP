@@ -4,6 +4,7 @@ public class FibonacciCalculator {
 
     /**
      * Main method to test the fibonacci methods.
+     *
      * @param args
      */
     public static void main(String[] args) {
@@ -14,6 +15,7 @@ public class FibonacciCalculator {
 
     /**
      * This method calculates the fibonacci of n recursively, very inefficient operation.
+     *
      * @param n
      * @return the n'th number in the fibonacci sequence
      */
@@ -28,6 +30,7 @@ public class FibonacciCalculator {
 
     /**
      * This method calculates the fibonacci of n non-recursively.
+     *
      * @param n
      * @return the n'th number in the fibonacci sequence.
      */
