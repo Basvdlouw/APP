@@ -6,56 +6,68 @@ public class MergeSort {
 
     public static void main(String[] args) {
         Integer[] intArray = new Integer[]{5, 4, 3, 6, 8, 1, 6};
-        System.out.println("Unsorted integer array + " + Arrays.toString(intArray));
-        mergeSort(intArray, 0, intArray.length);
+        System.out.println("Unsorted integer array " + Arrays.toString(intArray));
+        sort(intArray);
         System.out.println("Array sorted using merge sort " + Arrays.toString(intArray));
     }
 
-    public static <T extends Comparable<T>> void mergeSort(T[] array, int start, int end)
-    {
-        // base case
-        if (start < end)
-        {
-            // find the middle point
-            int middle = (start + end) / 2;
-
-            mergeSort(array, start, middle); // sort first half
-            mergeSort(array, middle + 1, end);  // sort second half
-
-            // merge the sorted halves
-            merge(array, start, middle, end);
-        }
+    /**
+     * Wrapper method which calls mergeSort.
+     * @param a array to be sorted, elements inside the array are required to implement the comparable interface.
+     * @param <T> generic type which will be instantiated at runtime
+     */
+    public static <T extends Comparable<T>> void sort(T[] a) {
+        mergeSort(a, 0, a.length-1);
     }
 
-    // merges two subarrays of array[].
-    private static <T extends Comparable<T>> void merge(T[] array, int start, int middle, int end)
-    {
-        T[] leftArray  = (T[]) new Comparable[middle - start + 1];
-        T[] rightArray = (T[]) new Comparable[end - middle];
-        if (leftArray.length >= 0)
-            System.arraycopy(array, start, leftArray, 0, leftArray.length);
-        for (int i = 0; i < rightArray.length; ++i)
-            rightArray[i] = array[middle + 1 + i];
-        int leftIndex = 0, rightIndex = 0;
-        int currentIndex = start;
-        while (leftIndex < leftArray.length && rightIndex < rightArray.length)
-        {
-            if (leftArray[leftIndex].compareTo(rightArray[rightIndex]) <= 0)
-            {
-                array[currentIndex] = leftArray[leftIndex];
-                leftIndex++;
-            }
+    /**
+     * Recursive mergeSort method.
+     * @param a array to be sorted
+     * @param i
+     * @param j
+     * @param <T>
+     */
+    private static <T extends Comparable<T>> void mergeSort (T[] a, int i, int j) {
+        if (j-i < 1) return;
+        int mid = (i+j)/2;
+        mergeSort(a, i, mid);
+        mergeSort(a, mid+1, j);
+        merge(a, i, mid, j);
+    }
+
+    /**
+     * Merge method
+     * Need to allocate a new array, but Java does not alllow allocating arrays of a generic type
+     * As a work-around we allocate an array of type Object[] to do the type casting. This will generate the warning which is surpressed.
+     * @param a
+     * @param p
+     * @param mid
+     * @param q
+     * @param <T>
+     */
+    @SuppressWarnings("unchecked") private static <T extends Comparable<T>> void  merge(T[] a, int p, int mid, int q) {
+        Object[] tmp = new Object[q-p+1];
+        int i = p;
+        int j = mid+1;
+        int k = 0;
+        while (i <= mid && j <= q) {
+            if (a[i].compareTo(a[j])<=0)
+                tmp[k] = a[i++];
             else
-            {
-                array[currentIndex] = rightArray[rightIndex];
-                rightIndex++;
-            }
-            currentIndex++;
+                tmp[k] = a[j++];
+            k++;
         }
-        while (leftIndex < leftArray.length)
-            array[currentIndex++] = leftArray[leftIndex++];
-        while (rightIndex < rightArray.length)
-            array[currentIndex++] = rightArray[rightIndex++];
+        if (i <= mid) {
+            while (i <= mid)
+                tmp[k++] = a[i++];
+        } else {
+            while (j <= q)
+                tmp[k++] = a[j++];
+        }
+        for (k = 0; k < tmp.length; k++) {
+            a[k+p] = (T)(tmp[k]);
+        }
     }
 }
+
 
