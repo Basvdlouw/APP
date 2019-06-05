@@ -18,7 +18,7 @@ public class SumCalculator {
      * @return sum of number
      */
     public static int calculateSumRecursive(int number) {
-       return number-1 == 0 ? number : number + calculateSumRecursive(number-1);
+       return number-1 <= 0 ? number : number + calculateSumRecursive(number-1);
     }
 
     /**

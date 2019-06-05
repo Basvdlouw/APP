@@ -26,7 +26,7 @@ public class InsertionSort {
      * @param arr
      * @param n
      */
-    public static <T extends Comparable<T>> void insertionSortRecursive(T arr[], int n) {
+    public static <T extends Comparable<T>> void insertionSortRecursive(T[] arr, int n) {
         if (n <= 1)
             return;
         insertionSortRecursive(arr, n - 1);

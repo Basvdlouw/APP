@@ -34,6 +34,6 @@ class FacultyCalculator {
      * @return factorial of number
      */
     public static int calculateFactorialRecursive(int number) {
-        return number-1 == 0 ? number : number * calculateFactorialRecursive(number-1);
+        return number-1 <= 0 ? number : number * calculateFactorialRecursive(number-1);
     }
 }
