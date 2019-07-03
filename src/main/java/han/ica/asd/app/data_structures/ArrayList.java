@@ -3,7 +3,8 @@ package han.ica.asd.app.data_structures;
 import java.util.Iterator;
 
 public class ArrayList<E> implements Iterable<E> {
-    private static final int DEFAULT_CAPACITY = 10;
+
+   private static final int DEFAULT_CAPACITY = 10;
 
     private int size;
     private E[] items;

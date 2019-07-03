@@ -46,7 +46,6 @@ public class QuickSort {
                 }
 
             } while (i <= j);
-
             quickSort(arr, a, j);
             quickSort(arr, i, b);
         }
