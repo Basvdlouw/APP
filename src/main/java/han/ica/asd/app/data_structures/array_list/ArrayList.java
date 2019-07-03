@@ -1,4 +1,4 @@
-package han.ica.asd.app.data_structures;
+package han.ica.asd.app.data_structures.array_list;
 
 import java.util.Iterator;
 

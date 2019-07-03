@@ -1,16 +1,18 @@
 package han.ica.asd.app.data_structures.singly_linked_list;
 
-//TODO: Implement methods as described in document
+/**
+ * Custom singly linked list implementation named "HANLinkedList"
+ * @param <E> generic type that will define the type of values that will go into the linked list
+ */
+public class HANLinkedList<E> {
 
-public class HANLinkedList<T> {
+    private LinkedListNode<E> header = null;
 
-    private LinkedListNode<T> header = null;
-
-    public void addFirst(T value) {
+    public void addFirst(E value) {
         if (header == null)
             header = new LinkedListNode<>(value);
         else {
-            LinkedListNode<T> second = header;
+            final LinkedListNode<E> second = header;
             header = new LinkedListNode<>(value);
             header.setNext(second);
         }
@@ -23,16 +25,16 @@ public class HANLinkedList<T> {
             header = header.getNext();
     }
 
-    public void insert(int index, T value) throws IndexOutOfBoundsException {
+    public void insert(int index, E value) throws IndexOutOfBoundsException {
         if (index == 0) {
             addFirst(value);
             return;
         }
-        LinkedListNode<T> previousNode = getNode(index - 1);
+        final LinkedListNode<E> previousNode = getNode(index - 1);
         if (previousNode.getNext() == null) {
             previousNode.setNext(new LinkedListNode<>(value));
         } else {
-            LinkedListNode<T> currentIndexNode = previousNode.getNext();
+            final LinkedListNode<E> currentIndexNode = previousNode.getNext();
             previousNode.setNext(new LinkedListNode<>(value));
             previousNode.getNext().setNext(currentIndexNode);
         }
@@ -43,24 +45,23 @@ public class HANLinkedList<T> {
             removeFirst();
             return;
         }
-
-        LinkedListNode<T> previousNode = getNode(index - 1);
+        final LinkedListNode<E> previousNode = getNode(index - 1);
         if (previousNode.getNext() == null)
             throw new IndexOutOfBoundsException();
         else {
-            LinkedListNode<T> newNodeAfterRemoval = previousNode.getNext().getNext();
+            final LinkedListNode<E> newNodeAfterRemoval = previousNode.getNext().getNext();
             previousNode.setNext(newNodeAfterRemoval);
         }
     }
 
-    public T get(int index) throws IndexOutOfBoundsException {
+    public E get(int index) throws IndexOutOfBoundsException {
         return getNode(index).getValue();
     }
 
-    private LinkedListNode<T> getNode(int index) throws IndexOutOfBoundsException {
+    private LinkedListNode<E> getNode(int index) throws IndexOutOfBoundsException {
         if (index < 0)
             throw new IndexOutOfBoundsException();
-        LinkedListNode<T> node = header;
+        LinkedListNode<E> node = header;
         if (index == 0)
             return node;
         int i = 0;
@@ -73,11 +74,12 @@ public class HANLinkedList<T> {
         return node;
     }
 
+    @SuppressWarnings("Duplicates")
     public int getSize() {
         if(header == null)
             return 0;
         int size = 1;
-        LinkedListNode<T> currentNode = header;
+        LinkedListNode<E> currentNode = header;
         while(currentNode.getNext() != null) {
             size++;
             currentNode = currentNode.getNext();
@@ -85,7 +87,7 @@ public class HANLinkedList<T> {
         return size;
     }
 
-    private void printList(LinkedListNode<T> node) {
+    private void printList(LinkedListNode<E> node) {
         System.out.println("Node is " + node.getValue());
         if (node.getNext() != null)
             printList(node.getNext());
@@ -93,5 +95,26 @@ public class HANLinkedList<T> {
 
     public void print() {
         printList(header);
+    }
+
+    private class LinkedListNode<T> {
+        private T value;
+        private LinkedListNode<T> next;
+
+        LinkedListNode(T value) {
+            this.value = value;
+        }
+
+        void setNext(LinkedListNode<T> next) {
+            this.next = next;
+        }
+
+        LinkedListNode<T> getNext() {
+            return next;
+        }
+
+        T getValue() {
+            return value;
+        }
     }
 }
