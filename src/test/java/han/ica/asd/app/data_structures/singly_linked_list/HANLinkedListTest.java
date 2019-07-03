@@ -9,14 +9,9 @@ class HANLinkedListTest {
 
     private HANLinkedList<Integer> singlyLinkedList;
 
-    @BeforeAll
+    @BeforeEach
     void setup() {
         singlyLinkedList = new HANLinkedList<>();
-    }
-
-    @AfterAll
-    void breakdown() {
-        singlyLinkedList = null;
     }
 
     @Test
@@ -73,6 +68,15 @@ class HANLinkedListTest {
         singlyLinkedList.insert(1, 20);
         Assertions.assertThrows(IndexOutOfBoundsException.class, () -> singlyLinkedList.get(2));
         assertEquals(20, singlyLinkedList.get(1));
+    }
+
+    @Test
+    void getSize() {
+        assertEquals(0, singlyLinkedList.getSize());
+        singlyLinkedList.insert(0, 10);
+        singlyLinkedList.insert(1, 20);
+        singlyLinkedList.insert(2, 30);
+        assertEquals(3, singlyLinkedList.getSize());
     }
 
     @Test

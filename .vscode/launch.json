@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - HANLinkedList",
+            "request": "launch",
+            "mainClass": "han.ica.asd.app.data_structures.singly_linked_list.HANLinkedList",
+            "projectName": "APP"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - InsertionSort",
+            "request": "launch",
+            "mainClass": "han.ica.asd.app.sort.InsertionSort",
+            "projectName": "APP"
+        }
+    ]
+}

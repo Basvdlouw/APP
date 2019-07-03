@@ -73,6 +73,18 @@ public class HANLinkedList<T> {
         return node;
     }
 
+    public int getSize() {
+        if(header == null)
+            return 0;
+        int size = 1;
+        LinkedListNode<T> currentNode = header;
+        while(currentNode.getNext() != null) {
+            size++;
+            currentNode = currentNode.getNext();
+        }
+        return size;
+    }
+
     private void printList(LinkedListNode<T> node) {
         System.out.println("Node is " + node.getValue());
         if (node.getNext() != null)
