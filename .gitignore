@@ -1,10 +1,13 @@
+# vscode personal settings
+.vscode
+
 # Compiled class file
 *.class
 
 # Build folder
 .target
 
-# Intellij files
+# Intellij personal settings
 .idea
 
 # Log file
