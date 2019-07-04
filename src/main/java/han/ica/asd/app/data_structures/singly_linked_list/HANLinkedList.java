@@ -2,6 +2,7 @@ package han.ica.asd.app.data_structures.singly_linked_list;
 
 /**
  * Custom singly linked list implementation named "HANLinkedList"
+ *
  * @param <E> generic type that will define the type of values that will go into the linked list
  */
 public class HANLinkedList<E> {
@@ -46,12 +47,8 @@ public class HANLinkedList<E> {
             return;
         }
         final LinkedListNode<E> previousNode = getNode(index - 1);
-        if (previousNode.getNext() == null)
-            throw new IndexOutOfBoundsException();
-        else {
-            final LinkedListNode<E> newNodeAfterRemoval = previousNode.getNext().getNext();
-            previousNode.setNext(newNodeAfterRemoval);
-        }
+        final LinkedListNode<E> newNodeAfterRemoval = previousNode.getNext().getNext();
+        previousNode.setNext(newNodeAfterRemoval);
     }
 
     public E get(int index) throws IndexOutOfBoundsException {
@@ -59,11 +56,9 @@ public class HANLinkedList<E> {
     }
 
     private LinkedListNode<E> getNode(int index) throws IndexOutOfBoundsException {
-        if (index < 0)
-            throw new IndexOutOfBoundsException();
         LinkedListNode<E> node = header;
-        if (index == 0)
-            return node;
+        if (index < 0 || node == null)
+            throw new IndexOutOfBoundsException();
         int i = 0;
         while (i < index) {
             if (node.getNext() == null)
@@ -76,25 +71,32 @@ public class HANLinkedList<E> {
 
     @SuppressWarnings("Duplicates")
     public int getSize() {
-        if(header == null)
+        if (header == null)
             return 0;
         int size = 1;
         LinkedListNode<E> currentNode = header;
-        while(currentNode.getNext() != null) {
+        while (currentNode.getNext() != null) {
             size++;
             currentNode = currentNode.getNext();
         }
         return size;
     }
 
-    private void printList(LinkedListNode<E> node) {
-        System.out.println("Node is " + node.getValue());
-        if (node.getNext() != null)
-            printList(node.getNext());
-    }
-
-    public void print() {
-        printList(header);
+    public String toString() {
+        final StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        LinkedListNode<E> currentNode = header;
+        boolean listEmpty = true;
+        while (currentNode != null) {
+            listEmpty = false;
+            sb.append(currentNode.getValue());
+            sb.append(", ");
+            currentNode = currentNode.getNext();
+        }
+        if (!listEmpty)
+            sb.delete(sb.length() - 2, sb.length());
+        sb.append("]");
+        return sb.toString();
     }
 
     private class LinkedListNode<T> {

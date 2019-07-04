@@ -51,15 +51,25 @@ class HANLinkedListTest {
     }
 
     @Test
-    void delete() {
+    void deleteFirstItem() {
         Assertions.assertThrows(IndexOutOfBoundsException.class, () -> singlyLinkedList.delete(0));
 
         singlyLinkedList.insert(0, 10);
         singlyLinkedList.insert(1, 20);
-
         singlyLinkedList.delete(0);
-
         assertEquals(20, singlyLinkedList.get(0));
+    }
+
+    @Test
+    void deleteItemInMiddle() {
+
+        singlyLinkedList.insert(0, 10);
+        singlyLinkedList.insert(1, 20);
+        singlyLinkedList.insert(2, 30);
+        singlyLinkedList.insert(3, 40);
+        singlyLinkedList.delete(2);
+
+        assertEquals(40, singlyLinkedList.get(2));
     }
 
     @Test
@@ -80,6 +90,10 @@ class HANLinkedListTest {
     }
 
     @Test
-    void print() {
+    void toStringTest() {
+        assertEquals("[]", singlyLinkedList.toString());
+        singlyLinkedList.insert(0, 10);
+        singlyLinkedList.insert(1, 20);
+        assertEquals("[10, 20]", singlyLinkedList.toString());
     }
 }

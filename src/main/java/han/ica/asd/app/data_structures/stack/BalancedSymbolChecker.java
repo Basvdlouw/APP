@@ -2,7 +2,6 @@ package han.ica.asd.app.data_structures.stack;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -36,11 +35,11 @@ public class BalancedSymbolChecker {
     }
 
     private static List<Symbol> convertCharArrayToSymbolList(char[] chars) {
-        List<Character> listC = new ArrayList<>();
+        final List<Character> listC = new ArrayList<>();
         for (char c : chars) {
             listC.add(c);
         }
-        List<Symbol> symbols = new ArrayList<>();
+        final List<Symbol> symbols = new ArrayList<>();
         listC.stream()
                 .map(BalancedSymbolChecker::getSymbolFromChar)
                 .filter(symbol -> symbol != Symbol.NOT_A_VALID_SYMBOL)
@@ -49,15 +48,14 @@ public class BalancedSymbolChecker {
     }
 
     public static boolean isBalanced(char[] chars) {
-        List<Symbol> symbols = convertCharArrayToSymbolList(chars);
-        HANStack<Symbol> stack = new HANStack<>();
+        final List<Symbol> symbols = convertCharArrayToSymbolList(chars);
+        final HANStack<Symbol> stack = new HANStack<>();
         for (Symbol symbol : symbols) {
             if (isOpeningSymbol(symbol)) {
                 stack.push(symbol);
             } else {
                 if (stack.getSize() == 0)
                     return false;
-
                 if (!isMatchingPair(stack.pop(), symbol))
                     return false;
             }

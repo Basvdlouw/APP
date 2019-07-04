@@ -7,10 +7,20 @@ import static org.junit.jupiter.api.Assertions.*;
 class BalancedSymbolCheckerTest {
 
     @Test
-    void isBalanced() {
-        char[] symbolArr1 = new char[]{'{', '[', ']', '}', ')'};
-        assertFalse(BalancedSymbolChecker.isBalanced(symbolArr1));
-        char[] symbolArr2 = new char[]{'(', '{', '[', ']', '}', ')'};
-        assertTrue(BalancedSymbolChecker.isBalanced(symbolArr2));
+    void isBalancedSuccess() {
+        char[] symbolArr = new char[]{'(', '{', '[', ']', '}', ')'};
+        assertTrue(BalancedSymbolChecker.isBalanced(symbolArr));
+    }
+
+    @Test
+    void isBalancedStackNotEmpty() {
+        char[] symbolArr = new char[]{'{', '[', ']', '}', ')'};
+        assertFalse(BalancedSymbolChecker.isBalanced(symbolArr));
+    }
+
+    @Test
+    void isBalancedPairsNotMatching() {
+        char[] symbolArr = new char[]{'(', '{', '[', ']', '}', '}'};
+        assertFalse(BalancedSymbolChecker.isBalanced(symbolArr));
     }
 }

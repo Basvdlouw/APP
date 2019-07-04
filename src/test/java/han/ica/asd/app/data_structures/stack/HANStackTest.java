@@ -9,16 +9,16 @@ import java.util.EmptyStackException;
 import static org.junit.jupiter.api.Assertions.*;
 
 class HANStackTest {
-    private Stack<Integer> stack;
+    private HANStack<Integer> stack;
 
     @BeforeEach
     void setup() {
-        stack = new Stack<>();
+        stack = new HANStack<>();
     }
 
     @Test
     void top() {
-        Assertions.assertThrows(EmptyStackException.class, ()-> stack.top());
+        Assertions.assertThrows(IndexOutOfBoundsException.class, ()-> stack.top());
 
         stack.push(1);
         stack.push(3);
@@ -30,7 +30,7 @@ class HANStackTest {
 
     @Test
     void pop() {
-        Assertions.assertThrows(EmptyStackException.class, ()-> stack.pop());
+        Assertions.assertThrows(IndexOutOfBoundsException.class, ()-> stack.pop());
 
         stack.push(1);
         stack.push(3);
