@@ -30,4 +30,8 @@ public class HANStack<E> {
     public int getSize() {
         return linkedList.getSize();
     }
+
+    public String toString() {
+        return linkedList.toString();
+    }
 }

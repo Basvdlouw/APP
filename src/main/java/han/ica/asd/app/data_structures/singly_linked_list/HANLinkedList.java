@@ -82,6 +82,7 @@ public class HANLinkedList<E> {
         return size;
     }
 
+    @SuppressWarnings("Duplicates")
     public String toString() {
         final StringBuilder sb = new StringBuilder();
         sb.append("[");

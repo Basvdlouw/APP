@@ -57,4 +57,12 @@ class HANStackTest {
         stack.push(5);
         assertEquals(3, stack.getSize());
     }
+
+    @Test
+    void toStringTest() {
+        assertEquals("[]", stack.toString());
+        stack.push( 10);
+        stack.push(20);
+        assertEquals("[20, 10]", stack.toString());
+    }
 }
