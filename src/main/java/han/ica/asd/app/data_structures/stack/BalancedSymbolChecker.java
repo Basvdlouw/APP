@@ -48,9 +48,8 @@ public class BalancedSymbolChecker {
     }
 
     public static boolean isBalanced(char[] chars) {
-        final List<Symbol> symbols = convertCharArrayToSymbolList(chars);
         final HANStack<Symbol> stack = new HANStack<>();
-        for (Symbol symbol : symbols) {
+        for (Symbol symbol : convertCharArrayToSymbolList(chars)) {
             if (isOpeningSymbol(symbol)) {
                 stack.push(symbol);
             } else {
