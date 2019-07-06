@@ -1,108 +1,112 @@
 package han.ica.asd.app.data_structures.array_list;
 
-import java.util.Iterator;
+import java.util.Arrays;
 
-public class ArrayList<E> implements Iterable<E> {
 
-   private static final int DEFAULT_CAPACITY = 10;
+public class ArrayList<E> {
 
-    private int size;
-    private E[] items;
+    private static final int DEFAULT_CAPACITY = 10;
+    private Object[] elementData;
+    private int amountOfElementsInArrayList;
 
     public ArrayList() {
-        clear();
+        elementData = new Object[DEFAULT_CAPACITY];
+        amountOfElementsInArrayList = 0;
     }
 
-    public void clear() {
-        size = 0;
-        ensureCapacity(DEFAULT_CAPACITY);
+    public ArrayList(int size) {
+        elementData = new Object[size];
+        amountOfElementsInArrayList = 0;
     }
 
+    /**
+     * adds an element to the end of the list
+     */
+    public void add(E e) {
+        ensureCapacity();
+        elementData[amountOfElementsInArrayList++] = e;
+    }
+
+    /**
+     * get the value by index
+     */
     @SuppressWarnings("unchecked")
-    public void ensureCapacity(int newCapacity) {
-        if (newCapacity < size) return;
-        E[] old = items;
-        items = (E[]) new Object[newCapacity];
-        if (size() >= 0) System.arraycopy(old, 0, items, 0, size());
-    }
-
-    public int size() {
-        return size;
-    }
-
-    public boolean isEmpty() {
-        return size() == 0;
-    }
-
-    public void trimToSize() {
-        ensureCapacity(size());
-    }
-
     public E get(int index) {
-        if (index < 0 || index >= size()) throw new ArrayIndexOutOfBoundsException();
-        return items[index];
-    }
-
-    public E set(int index, E newVal) {
-        if (index < 0 || index >= size()) throw new ArrayIndexOutOfBoundsException();
-        E old = items[index];
-        items[index] = newVal;
-        return old;
+        checkIndexOutOfBounds(index);
+        return (E) elementData[index];
     }
 
     /**
-     * add the element to the end of list
-     *
-     * @param element is the element you want to add
-     * @return true if add successfully, otherwise return false
+     * returns the size of the list
      */
-    public boolean add(E element) {
-        add(size(), element);
-        return true;
+    public int size() {
+        return amountOfElementsInArrayList;
     }
 
     /**
-     * add the element to the specific position
-     *
-     * @param index   is the position you want to insert the element
-     * @param element is the element you want to insert
+     * removes element from the list and shrinks the list back
      */
-    public void add(int index, E element) {
-        if (items.length == size()) ensureCapacity(size() * 2 + 1);
-        if (size - index >= 0) System.arraycopy(items, index, items, index + 1, size - index);
-        items[index] = element;
-        size++;
+    public void remove(int index) {
+        checkIndexOutOfBounds(index);
+        Object[] arr = new Object[amountOfElementsInArrayList-index+1];
+        for(int i=index+1; i<amountOfElementsInArrayList; i++) {
+            arr[i-(index+1)] = elementData[i];
+        }
+        for(int i=0; i<arr.length; i++) {
+            elementData[index +i] = arr[i];
+        }
+        amountOfElementsInArrayList--;
     }
 
-    public E remove(int index) {
-        E removeItem = items[index];
-        for (int i = index; i < size() - 1; i++) {
-            items[i] = items[i + 1];
-        }
-        size--;
-        return removeItem;
+    /**
+     * Sets a value at a certain index
+     * @param index to set the value at
+     * @param value value that has to be added
+     */
+    public void set(int index, E value) {
+        checkIndexOutOfBounds(index);
+        elementData[index] = value;
     }
 
-    public Iterator<E> iterator() {
-        return new ArrayListIterator();
+    /**
+     * return true if list is empty
+     */
+    public boolean isEmpty() {
+        return amountOfElementsInArrayList == 0;
     }
 
-    // inner class
-    private class ArrayListIterator implements java.util.Iterator<E> {
+    /**
+     * Method checks for an IndexOutOfBoundsException
+     * @param index decides whether to throw the exception or not
+     */
+    private void checkIndexOutOfBounds(int index) {
+        if (index < 0 || index >= amountOfElementsInArrayList)
+            throw new IndexOutOfBoundsException();
+    }
 
-        private int current = 0;
+    /**
+     * Method increases capacity of list by making it double whenever the list is full.
+     */
+    private void ensureCapacity() {
+        if (elementData.length == amountOfElementsInArrayList)
+          elementData = Arrays.copyOf(elementData, elementData.length * 2);
+    }
 
-        public boolean hasNext() {
-            return current < size();
+    /**
+     * Method displays all the elements in list. For example: [10, 3, 6]
+     */
+    public String toString() {
+        final StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        for(Object obj: elementData) {
+            if(obj == null)
+                continue;
+            sb.append(obj);
+            sb.append(", ");
         }
-
-        public E next() {
-            if (!hasNext()) throw new java.util.NoSuchElementException();
-            return items[current++];
-        }
-
-        public void remove() {
-            ArrayList.this.remove(--current); // reference the outer class
-        }
+        if (!isEmpty())
+            sb.delete(sb.length() - 2, sb.length());
+        sb.append("]");
+        return sb.toString();
     }
 }

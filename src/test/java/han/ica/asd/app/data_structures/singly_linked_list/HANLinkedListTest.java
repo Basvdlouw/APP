@@ -10,7 +10,7 @@ class HANLinkedListTest {
     private HANLinkedList<Integer> singlyLinkedList;
 
     @BeforeEach
-    void setup() {
+    void setUp() {
         singlyLinkedList = new HANLinkedList<>();
     }
 

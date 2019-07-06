@@ -4,15 +4,13 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.EmptyStackException;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class HANStackTest {
     private HANStack<Integer> stack;
 
     @BeforeEach
-    void setup() {
+    void setUp() {
         stack = new HANStack<>();
     }
 

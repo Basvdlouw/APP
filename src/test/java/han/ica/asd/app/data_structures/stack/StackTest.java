@@ -13,7 +13,7 @@ class StackTest {
     private Stack<Integer> stack;
 
     @BeforeEach
-    void setup() {
+    void setUp() {
         stack = new Stack<>();
     }
 
