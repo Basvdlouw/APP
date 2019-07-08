@@ -6,7 +6,6 @@ public class Vertex {
 
     private String name;
     private HashSet<Edge> edges;
-    private Edge previousEdge;
 
     public Vertex(String name) {
         this.name = name;
@@ -15,10 +14,6 @@ public class Vertex {
 
     public void addEdge(Edge edge) {
         edges.add(edge);
-    }
-
-    public void setPreviousEdge(Edge previousEdge) {
-        this.previousEdge = previousEdge;
     }
 
     public String getName() {

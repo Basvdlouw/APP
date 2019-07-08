@@ -26,7 +26,7 @@ public abstract class Graph {
     /**
      * Maps a vertex to it's name. this is done in order to create a graph more easily.
      */
-    protected HashMap<String, Vertex> vertices;
+    protected final HashMap<String, Vertex> vertices;
 
     public Graph() {
         vertices = new HashMap<>();
@@ -36,13 +36,17 @@ public abstract class Graph {
 
     protected void addVerticesToList(String[] strings) {
         if (vertices.get(strings[0]) == null) {
-            Vertex vertex = new Vertex(strings[0]);
+            final Vertex vertex = new Vertex(strings[0]);
             vertices.put(vertex.getName(), vertex);
         }
         if (vertices.get(strings[1]) == null) {
-            Vertex destination = new Vertex(strings[1]);
+            final Vertex destination = new Vertex(strings[1]);
             vertices.put(destination.getName(), destination);
         }
+    }
+
+    public void addVertex(Vertex vertex, Edge edge) {
+        //TODO: Implement this method
     }
 
     public abstract void print();

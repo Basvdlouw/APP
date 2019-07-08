@@ -8,11 +8,20 @@ import java.util.Arrays;
 
 public class WeightedUndirectedGraph extends Graph {
 
+    public WeightedUndirectedGraph(String[][] schema) {
+        super();
+        createGraph(schema);
+    }
+
+    public WeightedUndirectedGraph() {
+        super();
+    }
+
     @Override
     public void createGraph(String[][] schema) {
         Arrays.stream(schema).forEach(strings -> {
             addVerticesToList(strings);
-            int weight = Integer.parseInt(strings[2]);
+            final int weight = Integer.parseInt(strings[2]);
             vertices.get(strings[0]).addEdge(new Edge(vertices.get(strings[1]), weight));
             vertices.get(strings[1]).addEdge(new Edge(vertices.get(strings[0]), weight));
         });
@@ -24,8 +33,7 @@ public class WeightedUndirectedGraph extends Graph {
     }
 
     public static void main(String[] args) {
-        WeightedUndirectedGraph weightedUndirectedGraph = new WeightedUndirectedGraph();
-        weightedUndirectedGraph.createGraph(DEFAULT_WEIGHTED_SCHEMA);
+        final WeightedUndirectedGraph weightedUndirectedGraph = new WeightedUndirectedGraph(DEFAULT_WEIGHTED_SCHEMA);
         weightedUndirectedGraph.print();
     }
 }

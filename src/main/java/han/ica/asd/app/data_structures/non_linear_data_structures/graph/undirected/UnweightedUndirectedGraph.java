@@ -9,6 +9,15 @@ import java.util.HashMap;
 
 public class UnweightedUndirectedGraph extends Graph {
 
+    public UnweightedUndirectedGraph(String[][] schema) {
+        super();
+        createGraph(schema);
+    }
+
+    public UnweightedUndirectedGraph() {
+        super();
+    }
+
     @Override
     public void createGraph(String[][] schema) {
         Arrays.stream(schema).forEach(strings -> {
@@ -24,8 +33,7 @@ public class UnweightedUndirectedGraph extends Graph {
     }
 
     public static void main(String[] args) {
-        UnweightedUndirectedGraph unweightedUndirectedGraph = new UnweightedUndirectedGraph();
-        unweightedUndirectedGraph.createGraph(DEFAULT_UNWEIGHTED_SCHEMA);
+        final UnweightedUndirectedGraph unweightedUndirectedGraph = new UnweightedUndirectedGraph(DEFAULT_UNWEIGHTED_SCHEMA);
         unweightedUndirectedGraph.print();
     }
 }

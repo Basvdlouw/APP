@@ -1,11 +1,9 @@
 package han.ica.asd.app.data_structures.non_linear_data_structures.graph;
 
-import han.ica.asd.app.data_structures.non_linear_data_structures.graph.Vertex;
-
 public class Edge  {
 
-    private Vertex destination;
-    private int weight;
+    private final Vertex destination;
+    private final int weight;
     private static final int DEFAULT_WEIGHT_VALUE = 0;
 
     public Edge (Vertex vertex) {

@@ -8,6 +8,11 @@ import java.util.Arrays;
 
 public class WeightedDirectedGraph extends Graph {
 
+    public WeightedDirectedGraph(String[][] schema) {
+        super();
+        createGraph(schema);
+    }
+
     public WeightedDirectedGraph() {
         super();
     }
@@ -26,8 +31,7 @@ public class WeightedDirectedGraph extends Graph {
     }
 
     public static void main(String[] args) {
-        WeightedDirectedGraph weightedDirectedGraph = new WeightedDirectedGraph();
-        weightedDirectedGraph.createGraph(DEFAULT_WEIGHTED_SCHEMA);
+        final WeightedDirectedGraph weightedDirectedGraph = new WeightedDirectedGraph(DEFAULT_WEIGHTED_SCHEMA);
         weightedDirectedGraph.print();
     }
 }
