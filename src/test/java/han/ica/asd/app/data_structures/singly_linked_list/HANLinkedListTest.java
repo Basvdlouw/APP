@@ -96,4 +96,11 @@ class HANLinkedListTest {
         singlyLinkedList.insert(1, 20);
         assertEquals("[10, 20]", singlyLinkedList.toString());
     }
+
+    @Test
+    void isEmpty() {
+        assertTrue(singlyLinkedList.isEmpty());
+        singlyLinkedList.addFirst(1);
+        assertFalse(singlyLinkedList.isEmpty());
+    }
 }

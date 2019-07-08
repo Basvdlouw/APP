@@ -23,12 +23,20 @@ public class HANStack<E> {
         return element;
     }
 
+    public E get(int index) {
+        return linkedList.get(index);
+    }
+
     public void push(E element) {
         linkedList.addFirst(element);
     }
 
     public int getSize() {
         return linkedList.getSize();
+    }
+
+    public boolean isEmpty() {
+        return linkedList.isEmpty();
     }
 
     public String toString() {

@@ -82,6 +82,10 @@ public class HANLinkedList<E> {
         return size;
     }
 
+    public boolean isEmpty() {
+        return header == null;
+    }
+
     @SuppressWarnings("Duplicates")
     public String toString() {
         final StringBuilder sb = new StringBuilder();

@@ -63,4 +63,11 @@ class HANStackTest {
         stack.push(20);
         assertEquals("[20, 10]", stack.toString());
     }
+
+    @Test
+    void isEmpty() {
+        assertTrue(stack.isEmpty());
+        stack.push(1);
+        assertFalse(stack.isEmpty());
+    }
 }
