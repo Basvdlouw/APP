@@ -9,8 +9,7 @@ import java.util.HashMap;
 
 public class UnweightedUndirectedGraph extends Graph {
 
-
-
+    @Override
     public void createGraph(String[][] schema) {
         Arrays.stream(schema).forEach(strings -> {
             addVerticesToList(strings);

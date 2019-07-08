@@ -8,6 +8,7 @@ import java.util.Arrays;
 
 public class WeightedUndirectedGraph extends Graph {
 
+    @Override
     public void createGraph(String[][] schema) {
         Arrays.stream(schema).forEach(strings -> {
             addVerticesToList(strings);
