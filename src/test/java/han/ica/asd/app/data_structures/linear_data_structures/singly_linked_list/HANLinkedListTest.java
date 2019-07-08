@@ -1,6 +1,9 @@
-package han.ica.asd.app.data_structures.singly_linked_list;
+package han.ica.asd.app.data_structures.linear_data_structures.singly_linked_list;
 
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -81,7 +84,7 @@ class HANLinkedListTest {
     }
 
     @Test
-    void sizeize() {
+    void size() {
         assertEquals(0, singlyLinkedList.size());
         singlyLinkedList.insert(0, 10);
         singlyLinkedList.insert(1, 20);

@@ -1,6 +1,6 @@
 package han.ica.asd.app.recursion.towers_of_hanoi;
 
-import han.ica.asd.app.data_structures.stack.HANStack;
+import han.ica.asd.app.data_structures.linear_data_structures.stack.HANStack;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -17,6 +17,12 @@ class TowersOfHanoiTest {
         stackOne = new HANStack<>();
         stackTwo = new HANStack<>();
         stackThree = new HANStack<>();
+    }
+
+    @Test
+    void constructor() {
+        TowersOfHanoi towersOfHanoi = new TowersOfHanoi();
+        assertEquals(towersOfHanoi.getClass(), TowersOfHanoi.class);
     }
 
     @Test

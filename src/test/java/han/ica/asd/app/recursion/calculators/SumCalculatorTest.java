@@ -9,6 +9,12 @@ class SumCalculatorTest {
     private final int NUMBER = 5;
 
     @Test
+    void constructor() {
+        SumCalculator sumCalculator = new SumCalculator();
+        assertEquals(sumCalculator.getClass(), SumCalculator.class);
+    }
+
+    @Test
     void calculateSum() {
         assertEquals(15, SumCalculator.calculateSum(NUMBER));
     }

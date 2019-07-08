@@ -1,9 +1,9 @@
-package han.ica.asd.app.data_structures.Quack;
+package han.ica.asd.app.data_structures.linear_data_structures.quack;
 
-import han.ica.asd.app.data_structures.singly_linked_list.HANLinkedList;
+import han.ica.asd.app.data_structures.linear_data_structures.singly_linked_list.HANLinkedList;
 
 /**
- * This is a custom data structure called "Quack" which implements all regular functions of both a stack and a queue.
+ * This is a custom data structure called "quack" which implements all regular functions of both a stack and a queue.
  */
 public class Quack<E> {
 

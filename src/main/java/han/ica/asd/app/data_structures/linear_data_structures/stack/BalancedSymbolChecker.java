@@ -1,4 +1,4 @@
-package han.ica.asd.app.data_structures.stack;
+package han.ica.asd.app.data_structures.linear_data_structures.stack;
 
 import java.util.ArrayList;
 import java.util.Arrays;

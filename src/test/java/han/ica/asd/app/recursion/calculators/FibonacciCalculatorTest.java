@@ -11,6 +11,12 @@ class FibonacciCalculatorTest {
     private final int NUMBER = 10;
 
     @Test
+    void constructor() {
+        FibonacciCalculator fibonacciCalculator = new FibonacciCalculator();
+        assertEquals(fibonacciCalculator.getClass(), FibonacciCalculator.class);
+    }
+
+    @Test
     void calculateFibonacci() {
         assertEquals(0, FibonacciCalculator.calculateFibonacci(ZERO));
         assertEquals(1, FibonacciCalculator.calculateFibonacci(ONE));

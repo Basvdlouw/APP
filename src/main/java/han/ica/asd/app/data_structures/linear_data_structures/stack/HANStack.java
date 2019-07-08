@@ -1,6 +1,7 @@
-package han.ica.asd.app.data_structures.stack;
+package han.ica.asd.app.data_structures.linear_data_structures.stack;
 
-import han.ica.asd.app.data_structures.singly_linked_list.HANLinkedList;
+
+import han.ica.asd.app.data_structures.linear_data_structures.singly_linked_list.HANLinkedList;
 
 /**
  * Custom stack implementation which uses the HANLinkedList to implement all methods.

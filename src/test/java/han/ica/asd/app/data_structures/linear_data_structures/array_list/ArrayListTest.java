@@ -1,11 +1,9 @@
-package han.ica.asd.app.data_structures.array_list;
+package han.ica.asd.app.data_structures.linear_data_structures.array_list;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.Assertions;
 
 class ArrayListTest {
 

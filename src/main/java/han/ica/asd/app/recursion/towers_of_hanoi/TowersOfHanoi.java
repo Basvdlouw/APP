@@ -1,6 +1,6 @@
 package han.ica.asd.app.recursion.towers_of_hanoi;
 
-import han.ica.asd.app.data_structures.stack.HANStack;
+import han.ica.asd.app.data_structures.linear_data_structures.stack.HANStack;
 
 import java.util.stream.IntStream;
 

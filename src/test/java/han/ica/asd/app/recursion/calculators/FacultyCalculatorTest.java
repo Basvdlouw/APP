@@ -1,13 +1,18 @@
 package han.ica.asd.app.recursion.calculators;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class FacultyCalculatorTest {
 
     private final int NUMBER = 5;
+
+    @Test 
+    void constructor() {
+        FacultyCalculator facultyCalculator = new FacultyCalculator();
+        assertEquals(facultyCalculator.getClass(), FacultyCalculator.class);
+    }
 
     @Test
     void calculateFactorial() {

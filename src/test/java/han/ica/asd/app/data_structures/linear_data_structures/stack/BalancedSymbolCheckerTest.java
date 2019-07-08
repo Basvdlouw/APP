@@ -1,10 +1,16 @@
-package han.ica.asd.app.data_structures.stack;
+package han.ica.asd.app.data_structures.linear_data_structures.stack;
 
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class BalancedSymbolCheckerTest {
+
+    @Test
+    void constructor() {
+        BalancedSymbolChecker balancedSymbolChecker = new BalancedSymbolChecker();
+        assertEquals(balancedSymbolChecker.getClass(), BalancedSymbolChecker.class);
+    }
 
     @Test
     void isBalancedSuccess() {

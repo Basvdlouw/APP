@@ -1,4 +1,4 @@
-package han.ica.asd.app.data_structures.stack;
+package han.ica.asd.app.data_structures.linear_data_structures.stack;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

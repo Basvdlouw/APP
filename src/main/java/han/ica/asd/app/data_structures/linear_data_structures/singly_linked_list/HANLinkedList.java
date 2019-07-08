@@ -1,4 +1,4 @@
-package han.ica.asd.app.data_structures.singly_linked_list;
+package han.ica.asd.app.data_structures.linear_data_structures.singly_linked_list;
 
 /**
  * Custom singly linked list implementation named "HANLinkedList"
