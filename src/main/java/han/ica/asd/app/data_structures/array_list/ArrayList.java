@@ -15,11 +15,6 @@ public class ArrayList<E> {
         amountOfElementsInArrayList = 0;
     }
 
-    public ArrayList(int size) {
-        elementData = new Object[size];
-        amountOfElementsInArrayList = 0;
-    }
-
     /**
      * adds an element to the end of the list
      */

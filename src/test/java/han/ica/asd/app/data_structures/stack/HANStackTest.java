@@ -17,25 +17,21 @@ class HANStackTest {
     @Test
     void top() {
         Assertions.assertThrows(IndexOutOfBoundsException.class, ()-> stack.top());
-
         stack.push(1);
         stack.push(3);
         stack.push(5);
-
         assertEquals(5, stack.top());
-        assertEquals(3, stack.getSize());
+        assertEquals(3, stack.size());
     }
 
     @Test
     void pop() {
         Assertions.assertThrows(IndexOutOfBoundsException.class, ()-> stack.pop());
-
         stack.push(1);
         stack.push(3);
         stack.push(5);
-
         assertEquals(5, stack.pop());
-        assertEquals(2, stack.getSize());
+        assertEquals(2, stack.size());
     }
 
     @Test
@@ -44,16 +40,16 @@ class HANStackTest {
         assertEquals(1, stack.top());
         stack.push(3);
         assertEquals(3, stack.top());
-        assertEquals(2, stack.getSize());
+        assertEquals(2, stack.size());
     }
 
     @Test
-    void getSize() {
-        assertEquals(0, stack.getSize());
+    void size() {
+        assertEquals(0, stack.size());
         stack.push(1);
         stack.push(3);
         stack.push(5);
-        assertEquals(3, stack.getSize());
+        assertEquals(3, stack.size());
     }
 
     @Test
@@ -69,5 +65,17 @@ class HANStackTest {
         assertTrue(stack.isEmpty());
         stack.push(1);
         assertFalse(stack.isEmpty());
+    }
+
+    @Test
+    void get() {
+        assertThrows(IndexOutOfBoundsException.class, ()-> stack.get(0));
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        stack.push(4);
+        assertEquals(4 ,stack.get(0));
+        assertEquals(3 ,stack.get(1));
+        assertEquals(1 ,stack.get(3));
     }
 }

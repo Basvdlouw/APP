@@ -1,4 +1,4 @@
-package han.ica.asd.app.recursion;
+package han.ica.asd.app.recursion.calculators;
 
 public class NumberOf1sCalculator {
 

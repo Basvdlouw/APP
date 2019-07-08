@@ -55,13 +55,13 @@ public class BalancedSymbolChecker {
             if (isOpeningSymbol(symbol)) {
                 stack.push(symbol);
             } else {
-                if (stack.getSize() == 0)
+                if (stack.size() == 0)
                     return false;
                 if (!isMatchingPair(stack.pop(), symbol))
                     return false;
             }
         }
-        return stack.getSize() == 0;
+        return stack.size() == 0;
     }
 
     private static boolean isMatchingPair(Symbol opening, Symbol closing) {

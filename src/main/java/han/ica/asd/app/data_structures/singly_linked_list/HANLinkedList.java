@@ -9,6 +9,10 @@ public class HANLinkedList<E> {
 
     private LinkedListNode<E> header = null;
 
+    /**
+     * Adds an elemement to the start of the list
+     * @param value to add
+     */
     public void addFirst(E value) {
         if (header == null)
             header = new LinkedListNode<>(value);
@@ -16,6 +20,22 @@ public class HANLinkedList<E> {
             final LinkedListNode<E> second = header;
             header = new LinkedListNode<>(value);
             header.setNext(second);
+        }
+    }
+
+    /**
+     * Adds an element to the end of the list
+     * @param value to add
+     */
+    public void add(E value) {
+        if (header == null)
+            header = new LinkedListNode<>(value);
+        else {
+            LinkedListNode<E> node = header;
+            while (node.getNext() != null) {
+                node = node.getNext();
+            }
+            node.setNext(new LinkedListNode<>(value));
         }
     }
 
@@ -70,7 +90,7 @@ public class HANLinkedList<E> {
     }
 
     @SuppressWarnings("Duplicates")
-    public int getSize() {
+    public int size() {
         if (header == null)
             return 0;
         int size = 1;

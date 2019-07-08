@@ -81,12 +81,12 @@ class HANLinkedListTest {
     }
 
     @Test
-    void getSize() {
-        assertEquals(0, singlyLinkedList.getSize());
+    void sizeize() {
+        assertEquals(0, singlyLinkedList.size());
         singlyLinkedList.insert(0, 10);
         singlyLinkedList.insert(1, 20);
         singlyLinkedList.insert(2, 30);
-        assertEquals(3, singlyLinkedList.getSize());
+        assertEquals(3, singlyLinkedList.size());
     }
 
     @Test
@@ -102,5 +102,15 @@ class HANLinkedListTest {
         assertTrue(singlyLinkedList.isEmpty());
         singlyLinkedList.addFirst(1);
         assertFalse(singlyLinkedList.isEmpty());
+    }
+
+    @Test
+    void add() {
+        singlyLinkedList.add(1);
+        assertEquals(1, singlyLinkedList.get(0));
+        singlyLinkedList.add(2);
+        assertEquals(2, singlyLinkedList.get(1));
+        singlyLinkedList.addFirst(5);
+        assertEquals(5, singlyLinkedList.get(0));
     }
 }

@@ -1,4 +1,4 @@
-package han.ica.asd.app.data_structures.stack.towers_of_hanoi;
+package han.ica.asd.app.recursion.towers_of_hanoi;
 
 import han.ica.asd.app.data_structures.stack.HANStack;
 

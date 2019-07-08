@@ -31,8 +31,8 @@ public class HANStack<E> {
         linkedList.addFirst(element);
     }
 
-    public int getSize() {
-        return linkedList.getSize();
+    public int size() {
+        return linkedList.size();
     }
 
     public boolean isEmpty() {
