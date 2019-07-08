@@ -4,14 +4,7 @@ import java.util.Arrays;
 
 public class MergeSort {
 
-    public static void main(String[] args) {
-        Integer[] intArray = new Integer[]{5, 4, 3, 6, 8, 1, 6};
-        System.out.println("Unsorted integer array " + Arrays.toString(intArray));
-        sort(intArray);
-        System.out.println("Array sorted using merge sort " + Arrays.toString(intArray));
-    }
-
-    /**
+     /**
      * Wrapper method which calls mergeSort.
      *
      * @param a   array to be sorted, elements inside the array are required to implement the comparable interface.
@@ -39,8 +32,8 @@ public class MergeSort {
 
     /**
      * Merge method
-     * Need to allocate a new array, but Java does not alllow allocating arrays of a generic type
-     * As a work-around we allocate an array of type Object[] to do the type casting. This will generate the warning which is surpressed.
+     * Need to allocate a new array, but Java does not allow allocating arrays of a generic type
+     * As a work-around we allocate an array of type Object[] to do the type casting. This will generate the warning which is suppressed.
      *
      * @param a
      * @param p

@@ -1,14 +1,14 @@
 package han.ica.asd.app.recursion.towers_of_hanoi;
 
-public class Disk {
+class Disk {
 
     private int diskNumber;
 
-    public Disk(int diskNumber) {
+    Disk(int diskNumber) {
         this.diskNumber = diskNumber;
     }
 
-    public int getDiskNumber() {
+    int getDiskNumber() {
         return diskNumber;
     }
 }

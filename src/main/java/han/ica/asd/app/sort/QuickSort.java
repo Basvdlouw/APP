@@ -4,13 +4,6 @@ import java.util.Arrays;
 
 public class QuickSort {
 
-    public static void main(String[] args) {
-        Integer[] intArray = new Integer[]{5, 4, 3, 6, 8, 1, 6};
-        System.out.println("Unsorted integer array " + Arrays.toString(intArray));
-        sort(intArray);
-        System.out.println("Array sorted using quick sort " + Arrays.toString(intArray));
-    }
-
     /**
      * Wrapper method which calls quickSort
      *
@@ -34,8 +27,10 @@ public class QuickSort {
             int i = a, j = b;
             T x = arr[(i + j) / 2];
             do {
-                while (arr[i].compareTo(x) < 0) i++;
-                while (x.compareTo(arr[j]) < 0) j--;
+                while (arr[i].compareTo(x) < 0)
+                    i++;
+                while (x.compareTo(arr[j]) < 0)
+                    j--;
 
                 if (i <= j) {
                     T tmp = arr[i];

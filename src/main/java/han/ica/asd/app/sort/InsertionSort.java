@@ -1,24 +1,14 @@
 package han.ica.asd.app.sort;
 
-import java.util.Arrays;
-
 public class InsertionSort {
 
     /**
-     * Main method to test the insertion sort implementations
+     * Wrapper method which calls insertionSortRecursive.
      *
-     * @param args
+     * @param arr   array to be sorted, elements inside the array are required to implement the comparable interface.
      */
-    public static void main(String[] args) {
-        Integer[] intArray = new Integer[]{5, 4, 3, 6, 8, 1, 6};
-        System.out.println("Unsorted integer array + " + Arrays.toString(intArray));
-        insertionSort(intArray);
-        System.out.println("Array sorted using insertion sort " + Arrays.toString(intArray));
-
-        Integer[] intArray2 = new Integer[]{5, 4, 3, 6, 8, 1, 6};
-        System.out.println("Unsorted integer array + " + Arrays.toString(intArray2));
-        insertionSortRecursive(intArray2, intArray2.length);
-        System.out.println("Array sorted using recursive insertion sort " + Arrays.toString(intArray2));
+    public static <T extends Comparable<T>> void insertionSortRecursive(T[] arr) {
+        insertionSortRecursive(arr, arr.length);
     }
 
     /**
@@ -27,7 +17,7 @@ public class InsertionSort {
      * @param arr
      * @param n
      */
-    public static <T extends Comparable<T>> void insertionSortRecursive(T[] arr, int n) {
+    private static <T extends Comparable<T>> void insertionSortRecursive(T[] arr, int n) {
         if (n <= 1)
             return;
         insertionSortRecursive(arr, n - 1);
