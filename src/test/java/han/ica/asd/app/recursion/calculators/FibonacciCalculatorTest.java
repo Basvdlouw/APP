@@ -6,11 +6,21 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class FibonacciCalculatorTest {
 
-    @Test
-    void calculateFibonacciRecursive() {
-    }
+    private final int ZERO = 0;
+    private final int ONE = 1;
+    private final int NUMBER = 10;
 
     @Test
     void calculateFibonacci() {
+        assertEquals(0, FibonacciCalculator.calculateFibonacci(ZERO));
+        assertEquals(1, FibonacciCalculator.calculateFibonacci(ONE));
+        assertEquals(55, FibonacciCalculator.calculateFibonacci(NUMBER));
+    }
+
+    @Test
+    void calculateFibonacciRecursive() {
+        assertEquals(0, FibonacciCalculator.calculateFibonacciRecursive(ZERO));
+        assertEquals(1, FibonacciCalculator.calculateFibonacciRecursive(ONE));
+        assertEquals(55, FibonacciCalculator.calculateFibonacciRecursive(NUMBER));
     }
 }

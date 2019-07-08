@@ -8,5 +8,6 @@ class DiskTest {
 
     @Test
     void getDiskNumber() {
+        assertEquals(10, new Disk(10).getDiskNumber());
     }
 }

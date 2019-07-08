@@ -6,13 +6,9 @@ import java.util.stream.IntStream;
 
 public class TowersOfHanoi {
 
-    private final static int DEFAULT_AMOUNT_OF_DISKS = 10;
+    final static int DEFAULT_AMOUNT_OF_DISKS = 3;
 
-    public static void main(String[] args) {
-        new TowersOfHanoi().solvePuzzleUsingStack(new HANStack<>(), new HANStack<>(), new HANStack<>(), 5);
-    }
-
-    public void solvePuzzleUsingStack(HANStack<Disk> firstStack, HANStack<Disk> secondStack, HANStack<Disk> thirdStack, int amountOfDisks) {
+    public static void solvePuzzleUsingStack(HANStack<Disk> firstStack, HANStack<Disk> secondStack, HANStack<Disk> thirdStack, int amountOfDisks) {
         IntStream
                 .iterate(amountOfDisks, i -> i > 0, i -> i - 1)
                 .mapToObj(Disk::new)
@@ -21,7 +17,7 @@ public class TowersOfHanoi {
         solveRecursively(amountOfDisks, firstStack, secondStack, thirdStack, amountOfDisks);
     }
 
-    private void solveRecursively(int amountOfDisks, HANStack<Disk> firstStack, HANStack<Disk> secondStack, HANStack<Disk> thirdStack, final int startingAmountOfDisks) {
+    private static void solveRecursively(int amountOfDisks, HANStack<Disk> firstStack, HANStack<Disk> secondStack, HANStack<Disk> thirdStack, final int startingAmountOfDisks) {
         if (amountOfDisks > 0)
         {
             solveRecursively(amountOfDisks-1, firstStack, thirdStack, secondStack, startingAmountOfDisks);
@@ -64,7 +60,7 @@ public class TowersOfHanoi {
     }
 
 
-    public void solvePuzzleUsingStack(HANStack<Disk> firstStick, HANStack<Disk> secondStick, HANStack<Disk> thirdStick) {
-        solvePuzzleUsingStack(firstStick, secondStick, thirdStick, DEFAULT_AMOUNT_OF_DISKS);
+    public static void solvePuzzleUsingStack(HANStack<Disk> firstStack, HANStack<Disk> secondStack, HANStack<Disk> thirdStack) {
+        solvePuzzleUsingStack(firstStack, secondStack, thirdStack, DEFAULT_AMOUNT_OF_DISKS);
     }
 }

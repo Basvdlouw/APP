@@ -2,16 +2,6 @@ package han.ica.asd.app.recursion.calculators;
 
 public class FibonacciCalculator {
 
-    /**
-     * Main method to test the fibonacci methods.
-     *
-     * @param args
-     */
-    public static void main(String[] args) {
-        final int number = 5;
-        System.out.println("Recursive fibonacci of " + number + " is " + calculateFibonacciRecursive(number));
-        System.out.println("Non recursive fibonacci of " + number + " is " + calculateFibonacci(number));
-    }
 
     /**
      * This method calculates the fibonacci of n recursively, very inefficient operation.

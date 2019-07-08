@@ -2,18 +2,6 @@ package han.ica.asd.app.recursion.calculators;
 
 class FacultyCalculator {
 
-
-    /**
-     * Main method used to test the factorial methods.
-     *
-     * @param args
-     */
-    public static void main(String[] args) {
-        final int number = 5;
-        System.out.println("Recursive factorial of: " + number + " is " + calculateFactorialRecursive(number));
-        System.out.println("Non recursive factorial of: " + number + " is " + calculateFactorial(number));
-    }
-
     /**
      * This method calculates the factorial of the given number and returns it
      *
