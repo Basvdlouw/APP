@@ -28,7 +28,8 @@ public class BalancedSymbolChecker {
     }
 
     private static Symbol getSymbolFromChar(Character character) {
-        return Arrays.stream(Symbol.values())
+        return Arrays
+                .stream(Symbol.values())
                 .filter(symbol -> symbol.getCharacter() == character)
                 .findFirst()
                 .orElse(Symbol.NOT_A_VALID_SYMBOL);
@@ -40,7 +41,8 @@ public class BalancedSymbolChecker {
             listC.add(c);
         }
         final List<Symbol> symbols = new ArrayList<>();
-        listC.stream()
+        listC
+                .stream()
                 .map(BalancedSymbolChecker::getSymbolFromChar)
                 .filter(symbol -> symbol != Symbol.NOT_A_VALID_SYMBOL)
                 .forEach(symbols::add);

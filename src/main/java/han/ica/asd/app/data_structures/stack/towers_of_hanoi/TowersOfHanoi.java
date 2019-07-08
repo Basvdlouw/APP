@@ -13,7 +13,10 @@ public class TowersOfHanoi {
     }
 
     public void solvePuzzleUsingStack(HANStack<Disk> firstStack, HANStack<Disk> secondStack, HANStack<Disk> thirdStack, int amountOfDisks) {
-        IntStream.iterate(amountOfDisks, i -> i > 0, i -> i - 1).mapToObj(Disk::new).forEach(firstStack::push);
+        IntStream
+                .iterate(amountOfDisks, i -> i > 0, i -> i - 1)
+                .mapToObj(Disk::new)
+                .forEach(firstStack::push);
         display(amountOfDisks, firstStack, secondStack, thirdStack);
         solveRecursively(amountOfDisks, firstStack, secondStack, thirdStack, amountOfDisks);
     }

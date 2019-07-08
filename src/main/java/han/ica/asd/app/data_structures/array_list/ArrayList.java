@@ -1,6 +1,7 @@
 package han.ica.asd.app.data_structures.array_list;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 
 public class ArrayList<E> {
@@ -49,12 +50,9 @@ public class ArrayList<E> {
     public void remove(int index) {
         checkIndexOutOfBounds(index);
         Object[] arr = new Object[amountOfElementsInArrayList-index+1];
-        for(int i=index+1; i<amountOfElementsInArrayList; i++) {
-            arr[i-(index+1)] = elementData[i];
-        }
-        for(int i=0; i<arr.length; i++) {
-            elementData[index +i] = arr[i];
-        }
+        if (amountOfElementsInArrayList - index + 1 >= 0)
+            System.arraycopy(elementData, index + 1, arr, 0, amountOfElementsInArrayList - index + 1);
+        if (arr.length >= 0) System.arraycopy(arr, 0, elementData, index, arr.length);
         amountOfElementsInArrayList--;
     }
 
@@ -98,12 +96,10 @@ public class ArrayList<E> {
     public String toString() {
         final StringBuilder sb = new StringBuilder();
         sb.append("[");
-        for(Object obj: elementData) {
-            if(obj == null)
-                continue;
+        Arrays.stream(elementData).filter(Objects::nonNull).forEach(obj -> {
             sb.append(obj);
             sb.append(", ");
-        }
+        });
         if (!isEmpty())
             sb.delete(sb.length() - 2, sb.length());
         sb.append("]");
