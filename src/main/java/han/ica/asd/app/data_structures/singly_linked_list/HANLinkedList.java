@@ -91,14 +91,12 @@ public class HANLinkedList<E> {
         final StringBuilder sb = new StringBuilder();
         sb.append("[");
         LinkedListNode<E> currentNode = header;
-        boolean listEmpty = true;
         while (currentNode != null) {
-            listEmpty = false;
             sb.append(currentNode.getValue());
             sb.append(", ");
             currentNode = currentNode.getNext();
         }
-        if (!listEmpty)
+        if (!isEmpty())
             sb.delete(sb.length() - 2, sb.length());
         sb.append("]");
         return sb.toString();
