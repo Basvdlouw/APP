@@ -1,15 +1,16 @@
 package han.ica.asd.app.data_structures.non_linear_data_structures.graph;
 
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Vertex {
 
     private String name;
-    private HashSet<Edge> edges;
+    private List<Edge> edges;
 
     public Vertex(String name) {
         this.name = name;
-        edges = new HashSet<>();
+        edges = new ArrayList<>();
     }
 
     public void addEdge(Edge edge) {
@@ -18,6 +19,10 @@ public class Vertex {
 
     public String getName() {
         return name;
+    }
+
+    public List<Edge> getEdges() {
+        return edges;
     }
 
     public void printUnweighted() {

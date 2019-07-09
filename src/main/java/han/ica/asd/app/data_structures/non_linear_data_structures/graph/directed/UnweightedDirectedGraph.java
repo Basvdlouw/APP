@@ -33,6 +33,7 @@ public class UnweightedDirectedGraph extends Graph {
     public static void main(String[] args) {
         final UnweightedDirectedGraph directedGraph = new UnweightedDirectedGraph(DEFAULT_UNWEIGHTED_SCHEMA);
         directedGraph.print();
+        System.out.println(directedGraph.toString());
     }
 
 }

@@ -1,7 +1,8 @@
 package han.ica.asd.app.data_structures.non_linear_data_structures.graph;
 
-import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Objects;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public abstract class Graph {
 
@@ -45,10 +46,35 @@ public abstract class Graph {
         }
     }
 
-    public void addVertex(Vertex vertex, Edge edge) {
-        //TODO: Implement this method
+    /**
+     * This method assumes that the vertices added already have their edges defined
+     *
+     * @param vertex
+     * @param destination
+     */
+    public void addVertex(Vertex vertex, Vertex destination) {
+        vertices.putIfAbsent(vertex.getName(), vertex);
+        vertices.putIfAbsent(destination.getName(), destination);
     }
 
     public abstract void print();
+
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        AtomicInteger index = new AtomicInteger();
+        vertices.values().forEach(vertex -> {
+            stringBuilder.append("Vertex: ").append(vertex.getName()).append(" has the following edges ");
+            vertex.getEdges().stream().filter(Objects::nonNull)
+                    .forEach(e ->
+                    {
+                        final int size = vertex.getEdges().size();
+                        stringBuilder.append(e.getDestination().getName()).append(index.incrementAndGet() < size ? ", " : "");
+                        if (index.get() == size)
+                            index.set(0);
+                    });
+            stringBuilder.append("\n");
+        });
+        return stringBuilder.toString();
+    }
 }
 
