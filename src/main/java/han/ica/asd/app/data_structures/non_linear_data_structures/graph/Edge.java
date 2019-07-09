@@ -13,7 +13,7 @@ public class Edge  {
 
     public Edge(Vertex vertex, int weight) {
         this.destination = vertex;
-        this.weight =  weight;
+        this.weight = weight;
     }
 
     public int getWeight() {

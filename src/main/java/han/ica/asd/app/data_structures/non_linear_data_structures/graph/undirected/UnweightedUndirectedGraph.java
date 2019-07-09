@@ -5,7 +5,6 @@ import han.ica.asd.app.data_structures.non_linear_data_structures.graph.Graph;
 import han.ica.asd.app.data_structures.non_linear_data_structures.graph.Vertex;
 
 import java.util.Arrays;
-import java.util.HashMap;
 
 public class UnweightedUndirectedGraph extends Graph {
 

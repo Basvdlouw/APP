@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public abstract class Graph {
+public abstract class Graph implements IDijkstra{
 
     public static final String[][] DEFAULT_UNWEIGHTED_SCHEMA = {
             {"V1", "V2"},
@@ -29,23 +29,27 @@ public abstract class Graph {
      */
     protected final HashMap<String, Vertex> vertices;
 
+    public abstract void print();
+
+    public abstract void createGraph(String[][] schema);
+
     public Graph() {
         vertices = new HashMap<>();
     }
 
-    public abstract void createGraph(String[][] schema);
-
-    protected void addVerticesToList(String[] strings) {
-        if (vertices.get(strings[0]) == null) {
-            final Vertex vertex = new Vertex(strings[0]);
-            vertices.put(vertex.getName(), vertex);
-        }
-        if (vertices.get(strings[1]) == null) {
-            final Vertex destination = new Vertex(strings[1]);
-            vertices.put(destination.getName(), destination);
-        }
+    /**
+     * This method assumes that the vertices added will have their edges defined later
+     * @param strings converts strings[] to two vertices
+     */
+    public void addVerticesToList(String[] strings) {
+        vertices.putIfAbsent(strings[0], new Vertex(strings[0]));
+        vertices.putIfAbsent(strings[1], new Vertex(strings[1]));
     }
 
+
+    public void reset() {
+        vertices.values().forEach(v -> v.reset());
+    }
     /**
      * This method assumes that the vertices added already have their edges defined
      *
@@ -56,8 +60,6 @@ public abstract class Graph {
         vertices.putIfAbsent(vertex.getName(), vertex);
         vertices.putIfAbsent(destination.getName(), destination);
     }
-
-    public abstract void print();
 
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
