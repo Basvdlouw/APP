@@ -2,6 +2,7 @@ package han.ica.asd.app.data_structures.non_linear_data_structures.graph;
 
 import java.util.HashMap;
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public abstract class Graph implements IDijkstra {
@@ -74,6 +75,15 @@ public abstract class Graph implements IDijkstra {
     public void addVertex(Vertex vertex, Vertex destination) {
         vertices.putIfAbsent(vertex.getName(), vertex);
         vertices.putIfAbsent(destination.getName(), destination);
+    }
+
+    public boolean isConnected() {
+        reset();
+        shortestPathFromVertexToAllOthers(vertices, (Vertex) vertices.values().toArray()[1], weighted);
+        AtomicBoolean atomicBoolean = new AtomicBoolean(true);
+        vertices.values().stream().filter(vertex -> vertex.getDistance() == Integer.MAX_VALUE).map(vertex -> false).forEach(atomicBoolean::set);
+        reset();
+        return atomicBoolean.get();
     }
 
     public String toString() {

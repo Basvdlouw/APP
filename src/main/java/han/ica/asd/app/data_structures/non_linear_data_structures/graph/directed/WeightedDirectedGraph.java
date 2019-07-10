@@ -34,5 +34,6 @@ public class WeightedDirectedGraph extends Graph {
         final WeightedDirectedGraph weightedDirectedGraph = new WeightedDirectedGraph(DEFAULT_WEIGHTED_SCHEMA);
         weightedDirectedGraph.print();
         weightedDirectedGraph.getShortestPath(weightedDirectedGraph.vertices, "V0", "V5", weightedDirectedGraph.weighted).print();
+        System.out.println("Connected : " + weightedDirectedGraph.isConnected());
     }
 }

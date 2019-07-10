@@ -34,5 +34,6 @@ public class UnweightedDirectedGraph extends Graph {
         final UnweightedDirectedGraph directedGraph = new UnweightedDirectedGraph(DEFAULT_UNWEIGHTED_SCHEMA);
         directedGraph.print();
         directedGraph.getShortestPath(directedGraph.vertices, "V2", "V4", directedGraph.weighted).print();
+        System.out.println("Connected : " + directedGraph.isConnected());
     }
 }

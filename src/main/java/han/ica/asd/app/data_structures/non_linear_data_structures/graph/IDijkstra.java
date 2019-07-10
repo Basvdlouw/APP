@@ -45,18 +45,18 @@ public interface IDijkstra {
     }
 
 
-    private void shortestPathFromVertexToAllOthers(HashMap<String, Vertex> vertices, Vertex startVertex, Weight weight) {
+    default void shortestPathFromVertexToAllOthers(HashMap<String, Vertex> vertices, Vertex startVertex, Weight weight) {
         vertices.values().forEach(vertex -> vertex.setDistance(Integer.MAX_VALUE));
         final PriorityQueue<Vertex> pq = new PriorityQueue<>(vertices.size());
         pq.add(startVertex);
         startVertex.setDistance(0);
         if (weight == Weight.UNWEIGHTED)
-            shortestPathsFromVertexToAllOthersUnweighted(pq);
+            shortestPathFromVertexToAllOthersUnweighted(pq);
         else
-            shortestPathsFromVertexToAllOthersWeighted(pq);
+            shortestPathFromVertexToAllOthersWeighted(pq);
     }
 
-    private void shortestPathsFromVertexToAllOthersUnweighted(PriorityQueue<Vertex> pq) {
+    private void shortestPathFromVertexToAllOthersUnweighted(PriorityQueue<Vertex> pq) {
         while (!pq.isEmpty()) {
             final Vertex vertex = pq.poll();
             vertex.getEdges().forEach(edge -> {
@@ -70,7 +70,7 @@ public interface IDijkstra {
         }
     }
 
-    private void shortestPathsFromVertexToAllOthersWeighted(PriorityQueue<Vertex> pq) {
+    private void shortestPathFromVertexToAllOthersWeighted(PriorityQueue<Vertex> pq) {
         while (!pq.isEmpty()) {
             final Vertex vertex = pq.poll();
             vertex.getEdges().forEach(edge -> {

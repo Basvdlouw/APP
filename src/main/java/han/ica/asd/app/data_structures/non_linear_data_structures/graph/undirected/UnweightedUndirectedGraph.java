@@ -35,5 +35,6 @@ public class UnweightedUndirectedGraph extends Graph {
         final UnweightedUndirectedGraph unweightedUndirectedGraph = new UnweightedUndirectedGraph(DEFAULT_UNWEIGHTED_SCHEMA);
         unweightedUndirectedGraph.print();
         unweightedUndirectedGraph.getShortestPath(unweightedUndirectedGraph.vertices, "V2", "V4", Weight.UNWEIGHTED).print();
+        System.out.println("Connected : " + unweightedUndirectedGraph.isConnected());
     }
 }
