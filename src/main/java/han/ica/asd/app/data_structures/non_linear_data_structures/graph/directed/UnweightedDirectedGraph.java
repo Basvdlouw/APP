@@ -2,7 +2,6 @@ package han.ica.asd.app.data_structures.non_linear_data_structures.graph.directe
 
 import han.ica.asd.app.data_structures.non_linear_data_structures.graph.Edge;
 import han.ica.asd.app.data_structures.non_linear_data_structures.graph.Graph;
-import han.ica.asd.app.data_structures.non_linear_data_structures.graph.Path;
 import han.ica.asd.app.data_structures.non_linear_data_structures.graph.Vertex;
 
 import java.util.Arrays;
@@ -10,12 +9,12 @@ import java.util.Arrays;
 public class UnweightedDirectedGraph extends Graph {
 
     public UnweightedDirectedGraph(String[][] schema) {
-        super();
+        super(Weight.UNWEIGHTED);
         createGraph(schema);
     }
 
     public UnweightedDirectedGraph() {
-        super();
+        super(Weight.UNWEIGHTED);
     }
 
     @Override
@@ -34,9 +33,6 @@ public class UnweightedDirectedGraph extends Graph {
     public static void main(String[] args) {
         final UnweightedDirectedGraph directedGraph = new UnweightedDirectedGraph(DEFAULT_UNWEIGHTED_SCHEMA);
         directedGraph.print();
-
-        Path path = directedGraph.getShortestPath(directedGraph.vertices, "V1", "V6");
-        path.printUnweightedPath();
+        directedGraph.getShortestPath(directedGraph.vertices, "V2", "V4", directedGraph.weighted).print();
     }
-
 }

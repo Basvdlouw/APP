@@ -9,12 +9,12 @@ import java.util.Arrays;
 public class UnweightedUndirectedGraph extends Graph {
 
     public UnweightedUndirectedGraph(String[][] schema) {
-        super();
+        super(Weight.UNWEIGHTED);
         createGraph(schema);
     }
 
     public UnweightedUndirectedGraph() {
-        super();
+        super(Weight.UNWEIGHTED);
     }
 
     @Override
@@ -34,6 +34,6 @@ public class UnweightedUndirectedGraph extends Graph {
     public static void main(String[] args) {
         final UnweightedUndirectedGraph unweightedUndirectedGraph = new UnweightedUndirectedGraph(DEFAULT_UNWEIGHTED_SCHEMA);
         unweightedUndirectedGraph.print();
-        System.out.println(unweightedUndirectedGraph.toString());
+        unweightedUndirectedGraph.getShortestPath(unweightedUndirectedGraph.vertices, "V2", "V4", Weight.UNWEIGHTED).print();
     }
 }

@@ -1,7 +1,6 @@
 package han.ica.asd.app.data_structures.non_linear_data_structures.graph;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 public class Vertex implements Comparable<Vertex> {

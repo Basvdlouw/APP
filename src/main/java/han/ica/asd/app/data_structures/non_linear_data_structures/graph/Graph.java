@@ -4,24 +4,36 @@ import java.util.HashMap;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public abstract class Graph implements IDijkstra{
+public abstract class Graph implements IDijkstra {
 
     public static final String[][] DEFAULT_UNWEIGHTED_SCHEMA = {
-            {"V1", "V2"},
-            {"V1", "V3"},
-            {"V3", "V4"},
-            {"V4", "V2"},
-            {"V4", "V5"},
-            {"V5", "V6"},
+        {"V0", "V1"},
+        {"V0", "V3"},
+        {"V1", "V3"},
+        {"V1", "V4"},
+        {"V2", "V0"},
+        {"V2", "V5"},
+        {"V3", "V2"},
+        {"V3", "V4"},
+        {"V3", "V5"},
+        {"V3", "V6"},
+        {"V4", "V6"},
+        {"V6", "V5"}
     };
 
     public static final String[][] DEFAULT_WEIGHTED_SCHEMA = {
-            {"V1", "V2", "12"},
-            {"V1", "V3", "-2"},
-            {"V3", "V4", "14"},
-            {"V4", "V2", "9"},
-            {"V4", "V5", "1"},
-            {"V5", "V6", "10"},
+        {"V0", "V1", "2"},
+        {"V0", "V3", "1"},
+        {"V1", "V3", "3"},
+        {"V1", "V4", "10"},
+        {"V2", "V0", "4"},
+        {"V2", "V5", "5"},
+        {"V3", "V2", "2"},
+        {"V3", "V4", "2"},
+        {"V3", "V5", "8"},
+        {"V3", "V6", "4"},
+        {"V4", "V6", "6"},
+        {"V6", "V5", "1"}
     };
 
     /**
@@ -29,12 +41,15 @@ public abstract class Graph implements IDijkstra{
      */
     protected final HashMap<String, Vertex> vertices;
 
+    protected final Weight weighted;
+
     public abstract void print();
 
     public abstract void createGraph(String[][] schema);
 
-    public Graph() {
+    public Graph(Weight weighted) {
         vertices = new HashMap<>();
+        this.weighted = weighted;
     }
 
     /**
