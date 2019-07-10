@@ -63,7 +63,7 @@ public abstract class Graph implements IDijkstra {
 
 
     public void reset() {
-        vertices.values().forEach(v -> v.reset());
+        vertices.values().forEach(Vertex::reset);
     }
     /**
      * This method assumes that the vertices added already have their edges defined

@@ -59,7 +59,7 @@ public class Vertex implements Comparable<Vertex> {
     }
 
     public void reset() {
-        distance = DEFAULT_DISTANCE;
+        distance = Vertex.DEFAULT_DISTANCE;
         previous = null;
     }
 }
