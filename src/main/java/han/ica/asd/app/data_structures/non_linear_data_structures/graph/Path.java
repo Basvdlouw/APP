@@ -25,13 +25,13 @@ public class Path {
         this.weighted = weighted == null ? Weight.UNWEIGHTED : weighted;
     }
 
-    public void printUnweightedPath(StringBuilder sb) {
+    private void printUnweightedPath(StringBuilder sb) {
       sb.append(" takes ")
         .append(steps)
         .append(" steps");
     }
 
-    public void printWeightedPath(StringBuilder sb) {
+    private void printWeightedPath(StringBuilder sb) {
         sb.append(" and has a weight of ")
         .append(weight);
     }

@@ -40,9 +40,9 @@ public abstract class Graph implements IDijkstra {
     /**
      * Maps a vertex to it's name. this is done in order to create a graph more easily.
      */
-    protected final HashMap<String, Vertex> vertices;
+    public final HashMap<String, Vertex> vertices;
 
-    protected final Weight weighted;
+    public final Weight weighted;
 
     public abstract void print();
 
